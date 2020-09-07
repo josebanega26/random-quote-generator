@@ -6,7 +6,12 @@ const quotesSLice = createSlice({
     quote: null,
     quotesList: [],
   },
-  reducers: {},
+  reducers: {
+    setRandomQuote: (state, { payload }) => {
+      return { ...state, quote: payload };
+    },
+  },
 });
 
+export const { setRandomQuote } = quotesSLice.actions;
 export default quotesSLice.reducer;
