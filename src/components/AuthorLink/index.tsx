@@ -17,12 +17,17 @@ const GoToLink = styled.button`
   outline: 0;
   background: #333333;
 `;
-const AuthorLink = () => {
+
+interface IAuthorLinkProps {
+  genre: string;
+  author: string;
+}
+const AuthorLink: React.FC<IAuthorLinkProps> = ({ genre, author }) => {
   return (
     <GoToLink>
       <div>
-        <div>Author</div>
-        <div>genre</div>
+        <h2> {author || 'Unknow'}</h2>
+        <div>{genre}</div>
       </div>
       <GoToIcon></GoToIcon>
     </GoToLink>

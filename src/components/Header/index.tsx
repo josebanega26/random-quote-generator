@@ -1,6 +1,8 @@
 import React from 'react';
 import { ReactComponent as RandomIcon } from '../../assets/icons/random.svg';
 import styled, { keyframes } from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { onGetRandomQuote } from '../../redux/reducers/quotesSlice';
 
 const infiniteSpinner = keyframes`
 from{
@@ -35,9 +37,15 @@ const Header = styled.header`
   padding: 1rem 3rem;
 `;
 const HeaderWrapper = () => {
+  const dispatch = useDispatch();
+
   return (
     <Header>
-      <Button>
+      <Button
+        onClick={() => {
+          dispatch(onGetRandomQuote());
+        }}
+      >
         random
         <RandomIcon></RandomIcon>
       </Button>

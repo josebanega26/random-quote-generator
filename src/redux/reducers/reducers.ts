@@ -3,7 +3,7 @@ import quotesSlice from './quotesSlice';
 import uiSlice from './uiSlice';
 
 export const rootReducer = combineReducers({
-  slice: quotesSlice,
+  quotes: quotesSlice,
   ui: uiSlice,
 });
 

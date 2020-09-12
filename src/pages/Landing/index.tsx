@@ -2,9 +2,12 @@ import React from 'react';
 import Quote from '../../components/Quote';
 import styled from 'styled-components';
 import { mockQuote } from '../../utils/mockResponse';
-// import quotesSaga from '../../redux/sideeffects';
-// import { useDispatch } from 'react-redux';
+// import quotesSaga from '../../redux/sideeffects/index';
+import { useDispatch, useSelector } from 'react-redux';
 import AuthorLink from '../../components/AuthorLink';
+import { onGetRandomQuote } from '../../redux/reducers/quotesSlice';
+import { RootState } from '../../redux/reducers/reducers';
+
 const Landing = styled.section`
   width: 55%;
   margin: 0 auto;
@@ -14,15 +17,26 @@ const Landing = styled.section`
 `;
 
 const LandingWrapper = () => {
-  // const dispatch = useDispatch();
-  // React.useEffect(() => {
+  const { currentQuote } = useSelector((state: RootState) => state.quotes);
 
-  // }, []);
-  const text = mockQuote;
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(onGetRandomQuote());
+  }, [dispatch]);
+
   return (
     <Landing>
-      <Quote quote={text}></Quote>
-      <AuthorLink></AuthorLink>
+      {currentQuote ? (
+        <React.Fragment>
+          <Quote quote={currentQuote?.quoteText}></Quote>
+          <AuthorLink
+            author={currentQuote!.quoteAuthor}
+            genre={currentQuote!.quoteGenre}
+          ></AuthorLink>
+        </React.Fragment>
+      ) : (
+        <div>waiting</div>
+      )}
     </Landing>
   );
 };
