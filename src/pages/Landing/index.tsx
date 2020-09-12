@@ -1,19 +1,16 @@
 import React from 'react';
 import Quote from '../../components/Quote';
 import styled from 'styled-components';
-import { mockQuote } from '../../utils/mockResponse';
-// import quotesSaga from '../../redux/sideeffects/index';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthorLink from '../../components/AuthorLink';
 import { onGetRandomQuote } from '../../redux/reducers/quotesSlice';
 import { RootState } from '../../redux/reducers/reducers';
 
 const Landing = styled.section`
-  width: 55%;
-  margin: 0 auto;
-  @media (max-width: 768px) {
-    width: 95%;
-  }
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 const LandingWrapper = () => {

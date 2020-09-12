@@ -3,6 +3,7 @@ import { ReactComponent as RandomIcon } from '../../assets/icons/random.svg';
 import styled, { keyframes } from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { onGetRandomQuote } from '../../redux/reducers/quotesSlice';
+import { useHistory } from 'react-router-dom';
 
 const infiniteSpinner = keyframes`
 from{
@@ -35,14 +36,19 @@ const Header = styled.header`
   display: flex;
   justify-content: flex-end;
   padding: 1rem 3rem;
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+  }
 `;
 const HeaderWrapper = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   return (
     <Header>
       <Button
         onClick={() => {
+          history.push('/');
           dispatch(onGetRandomQuote());
         }}
       >

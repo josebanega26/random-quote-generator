@@ -41,7 +41,7 @@ export const onGetRandomQuote = () => async (dispatch: any) => {
 
 export const onGetQuotesByAuthor = (author: string) => async (dispatch: any) => {
   try {
-    const response = await fetch(`${BASE_PATH}${author}${AUTHOR_PATH}${PARAMS}`);
+    const response = await fetch(`${BASE_PATH}${AUTHOR_PATH}${author}${PARAMS}`);
     const quotesByAuthor = await response.json();
     dispatch(setQuoteByAuthor(quotesByAuthor));
   } catch (err) {
