@@ -8,7 +8,7 @@ This app was built with React and Typescript for the [Random Quote Generator cha
 You can see the result here → [Site Alive](https://random-quote-generator-jb.netlify.app/)
 
 ## 🚀 Getting Started
-The application is built with webpack. You can run the following command to install all dependencies.
+The application is built with create-react-app. You can run the following command to install all dependencies.
 ```
 $ npm install
 ```
