@@ -14,6 +14,7 @@ const Landing = styled.section`
 `;
 
 const LandingWrapper = () => {
+  const { loading } = useSelector((state: RootState) => state.ui);
   const { currentQuote } = useSelector((state: RootState) => state.quotes);
 
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const LandingWrapper = () => {
 
   return (
     <Landing>
-      {currentQuote ? (
+      {currentQuote && !loading ? (
         <React.Fragment>
           <Quote quote={currentQuote?.quoteText}></Quote>
           <AuthorLink
@@ -31,9 +32,7 @@ const LandingWrapper = () => {
             genre={currentQuote!.quoteGenre}
           ></AuthorLink>
         </React.Fragment>
-      ) : (
-        <div>waiting</div>
-      )}
+      ) : null}
     </Landing>
   );
 };

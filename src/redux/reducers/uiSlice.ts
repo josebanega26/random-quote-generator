@@ -6,7 +6,17 @@ const uiSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setLoading: (state, { payload }) => {
+      state.loading = payload;
+    },
+    setError: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+  },
 });
+
+export const { setLoading, setError } = uiSlice.actions;
 
 export default uiSlice.reducer;
