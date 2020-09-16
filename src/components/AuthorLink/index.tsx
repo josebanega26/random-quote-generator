@@ -13,22 +13,30 @@ const GoToLink = styled.button`
   padding: 0 1.75rem;
   align-items: center;
   border: 0;
-  color: #f2f2f2;
-  fill: #f2f2f2;
+  color: ##333333;
+  fill: ##333333;
+  background: #fff;
   outline: 0;
-  background: #333333;
   transition: all 0.3s;
   cursor: pointer;
+  transition: all 0.5s;
   &:hover {
     opacity: 0.9;
+    color: #f2f2f2;
+    fill: #f2f2f2;
+    background: #333333;
+    p {
+      color: #f2f2f2;
+    }
   }
   p {
+    color: #4f4f4f;
     font-family: Raleway;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
-    color: #f2f2f2;
+    margin-bottom: 0.5rem;
   }
   div {
     display: flex;
